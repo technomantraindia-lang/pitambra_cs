@@ -6,12 +6,25 @@ import Image from 'next/image'
 import { ArrowRight, Wrench, Zap, Droplet, Factory, Star, CheckCircle, Clock, Shield, BadgeCheck, Building2, BriefcaseBusiness, Medal, TrendingUp } from 'lucide-react'
 
 export default function Home() {
+  const clients = [
+    { name: 'Hero MotoCorp', logo: '/hero.png' },
+    { name: 'Morris Garages', logo: '/mg.png' },
+    { name: 'Banco', logo: '/banco.png' },
+    { name: 'Satyam Auto Components', logo: '/satyam.png' },
+    { name: 'Shakun', logo: '/shakun.png' },
+    { name: 'Alphagary', logo: '/alphagary.png' },
+    { name: 'Varroc Excellence', logo: '/varroc.png' },
+    { name: 'Autofit', logo: '/autofit.png' },
+    { name: 'Sandhar', logo: '/sandhar.png' },
+    { name: 'Hilti', logo: '/hilti.png' },
+  ]
+
   return (
     <>
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="relative bg-primary text-primary-foreground py-32 md:py-48 overflow-hidden min-h-screen flex items-center">
+        <section className="relative min-h-[92vh] overflow-hidden bg-slate-950 py-28 text-primary-foreground md:py-36">
           {/* Background Carousel */}
           <div className="absolute inset-0 z-0">
             <ImageCarousel 
@@ -22,46 +35,66 @@ export default function Home() {
                 { src: '/industrial-facility.jpg', alt: 'Industrial Facility' },
               ]}
             />
-            {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/70 to-primary/60"></div>
-          </div>
-
-          {/* Floating Elements */}
-          <div className="absolute inset-0 opacity-10 z-0">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-secondary rounded-full mix-blend-multiply filter blur-3xl animate-float"></div>
-            <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-secondary/50 rounded-full mix-blend-multiply filter blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.93)_0%,rgba(15,23,42,0.82)_42%,rgba(15,23,42,0.34)_78%,rgba(2,6,23,0.64)_100%)]"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.45)_0%,rgba(2,6,23,0)_42%,rgba(2,6,23,0.82)_100%)]"></div>
           </div>
 
           {/* Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-            <div className="max-w-3xl">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-balance animate-slideInLeft">
-                Engineering Excellence in MEP Solutions
+          <div className="relative z-10 mx-auto flex min-h-[calc(92vh-14rem)] w-full max-w-7xl flex-col justify-center px-6">
+            <div className="max-w-4xl">
+              <div className="mb-6 inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-amber-200 shadow-[0_12px_32px_rgba(2,6,23,0.25)] backdrop-blur-md animate-slideInLeft">
+                12+ Years of Industrial MEP & Fabrication Expertise
+              </div>
+              <h1 className="mb-6 max-w-4xl text-5xl font-bold leading-tight text-white text-balance animate-slideInLeft md:text-6xl lg:text-7xl">
+                Precision MEP Solutions for Industrial Projects
               </h1>
-              <p className="text-lg md:text-xl opacity-95 mb-10 leading-relaxed animate-slideInLeft delay-100">
-                Over 12 years of expertise delivering precision-engineered MEP (Mechanical, Electrical, Plumbing) and custom fabrication solutions for projects of any scale.
+              <p className="mb-10 max-w-2xl text-lg leading-8 text-slate-100 animate-slideInLeft delay-100 md:text-xl">
+                Pitambra Fab Tech delivers mechanical, electrical, plumbing, and custom fabrication work with dependable site coordination, skilled manpower, and quality-focused execution.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 animate-slideInLeft delay-200">
+              <div className="flex flex-col gap-4 animate-slideInLeft delay-200 sm:flex-row">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-secondary text-secondary-foreground px-8 py-4 rounded-lg font-bold hover:shadow-xl hover:scale-105 transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 px-8 py-4 font-bold text-white shadow-[0_22px_46px_rgba(249,115,22,0.28)] transition-all duration-300 hover:scale-105 hover:shadow-[0_26px_52px_rgba(249,115,22,0.36)]"
                 >
                   Get a Quote
                   <ArrowRight size={20} />
                 </Link>
                 <Link
                   href="/services"
-                  className="inline-flex items-center justify-center gap-2 border-2 border-primary-foreground px-8 py-4 rounded-lg font-bold hover:bg-primary-foreground/20 hover:shadow-lg transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/35 bg-white/10 px-8 py-4 font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/18 hover:shadow-lg"
                 >
                   Our Services
                 </Link>
               </div>
             </div>
+
+            <div className="mt-12 grid max-w-4xl grid-cols-1 gap-3 animate-fadeInUp sm:grid-cols-3">
+              {[
+                { value: '100+', label: 'Projects Completed' },
+                { value: '50+', label: 'Skilled Team Members' },
+                { value: 'Rs 2.3 Cr', label: 'Last FY Turnover' },
+              ].map((item) => (
+                <div key={item.label} className="border-l-2 border-amber-400/80 bg-white/[0.07] px-5 py-4 shadow-[0_16px_34px_rgba(2,6,23,0.22)] backdrop-blur-md">
+                  <p className="text-3xl font-bold text-white">{item.value}</p>
+                  <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-slate-200">{item.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="absolute bottom-0 left-0 right-0 z-10 border-t border-white/10 bg-slate-950/55 backdrop-blur-md">
+            <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px px-6 py-4 text-sm font-semibold text-slate-100 sm:grid-cols-4">
+              {['MEP Installation', 'Custom Fabrication', 'Utility Support', 'Shutdown Maintenance'].map((item) => (
+                <div key={item} className="flex min-h-10 items-center justify-center border-white/10 px-3 text-center sm:border-l first:sm:border-l-0">
+                  {item}
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* Services Preview */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-amber-50 via-orange-50/80 to-sky-50/90">
+        <section data-scroll className="py-20 md:py-28 bg-gradient-to-b from-amber-50 via-orange-50/80 to-sky-50/90">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 animate-fadeInUp">Our Core Services</h2>
@@ -101,6 +134,8 @@ export default function Home() {
                 return (
                   <div
                     key={index}
+                    data-scroll="scale"
+                    data-scroll-delay={index > 2 ? '3' : String(index)}
                     className="group relative bg-gradient-to-br from-white via-card to-amber-50/60 border-2 border-amber-300/80 shadow-[0_18px_50px_rgba(148,163,184,0.12)] rounded-xl overflow-hidden hover:border-orange-400 transition-all duration-500 hover:-translate-y-2 animate-fadeInUp"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
@@ -142,93 +177,87 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Why Choose Us */}
-        <section className="py-20 md:py-28 bg-gradient-to-br from-slate-900 via-slate-800 to-[#9a6b2f] relative overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
+        {/* Featured Projects */}
+        <section data-scroll className="relative overflow-hidden bg-gradient-to-r from-slate-950 via-primary to-slate-900 py-14 md:py-16 text-white">
+          <div className="absolute inset-0 opacity-25">
             <Image
-              src="/building-interior.jpg"
-              alt="Background"
+              src="/industrial-facility.jpg"
+              alt="Industrial project background"
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(15,23,42,0.92),rgba(30,41,59,0.84),rgba(154,107,47,0.58))]"></div>
-            <div className="absolute -top-32 -left-20 w-72 h-72 bg-secondary/35 rounded-full blur-3xl"></div>
-            <div className="absolute -bottom-24 right-0 w-96 h-96 bg-sky-300/15 rounded-full blur-3xl"></div>
+            <div className="absolute inset-0 bg-slate-950/80" />
           </div>
-          <div className="relative max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 xl:grid-cols-[1.05fr_1.6fr] gap-10 xl:gap-12 items-start">
-              <div className="animate-slideInLeft xl:-mt-10">
-                <div className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-amber-200 mb-5 backdrop-blur-sm">
-                  Trusted Engineering Partner
-                </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">Why Choose Pitambra?</h2>
-                <div className="space-y-5">
-                  {[
-                    { title: '12+ Years Experience', desc: 'Proven track record in MEP and fabrication projects', icon: Medal },
-                    { title: 'Expert Leadership', desc: 'Led by Director Gajendra Pal with professional engineering degrees', icon: BriefcaseBusiness },
-                    { title: 'Quality & Precision', desc: 'Commitment to highest standards and timeline adherence', icon: Shield },
-                    { title: 'Cost-Effective Solutions', desc: 'Efficient project execution delivering maximum value', icon: TrendingUp },
-                  ].map((item, index) => (
-                    <div key={index} className="flex gap-4 p-5 md:p-6 rounded-[28px] border border-white/12 bg-slate-900/35 shadow-[0_18px_45px_rgba(2,6,23,0.18)] backdrop-blur-sm hover:border-amber-300/40 hover:bg-slate-900/45 transition-all duration-300 group cursor-pointer">
-                      <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-yellow-500 via-amber-500 to-yellow-700 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_18px_35px_rgba(245,158,11,0.35)]">
-                        <item.icon className="w-8 h-8 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="text-2xl font-bold text-white mb-2 leading-tight group-hover:text-amber-200 transition-colors duration-300">{item.title}</h4>
-                        <p className="text-slate-200/85 text-lg leading-relaxed group-hover:text-white transition-colors duration-300 max-w-md">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="animate-slideInRight space-y-8 md:space-y-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-                  {[
-                    { src: '/industrial-facility.jpg', alt: 'Industrial MEP plant room' },
-                    { src: '/electrical-system.jpg', alt: 'Electrical control systems' },
-                    { src: '/hvac-system.jpg', alt: 'HVAC ducting system' },
-                    { src: '/fabrication.jpg', alt: 'Structural fabrication work' },
-                  ].map((image, index) => (
-                    <div
-                      key={index}
-                      className="relative overflow-hidden rounded-[24px] border border-white/20 bg-white/10 shadow-[0_22px_55px_rgba(2,6,23,0.28)] min-h-[220px] md:min-h-[280px] group"
-                    >
-                      <Image
-                        src={image.src}
-                        alt={image.alt}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/35 via-transparent to-white/10" />
-                    </div>
-                  ))}
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 border border-white/12 bg-slate-950/30 backdrop-blur-sm rounded-[28px] px-5 md:px-6 py-5">
-                  {[
-                    { icon: Shield, title: 'Safety First' },
-                    { icon: BadgeCheck, title: 'Quality Assurance' },
-                    { icon: Clock, title: 'On-Time Delivery' },
-                    { icon: BriefcaseBusiness, title: 'Client Satisfaction' },
-                    { icon: Factory, title: 'Innovative Solutions' },
-                  ].map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex min-h-16 min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white"
-                    >
-                      <item.icon className="h-8 w-8 flex-shrink-0 text-amber-300 sm:h-9 sm:w-9" />
-                      <span className="min-w-0 text-sm font-semibold uppercase leading-snug tracking-wide break-words">
-                        {item.title}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+          <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 lg:grid-cols-[0.8fr_1.8fr] lg:items-center">
+            <div data-scroll="left" className="animate-slideInLeft">
+              <p className="mb-4 text-sm font-bold uppercase tracking-wide text-amber-400">Featured Projects</p>
+              <h2 className="mb-5 text-3xl font-bold leading-tight md:text-4xl">
+                Delivering Quality Across Industries
+              </h2>
+              <p className="mb-7 max-w-md text-base leading-7 text-slate-200">
+                We take pride in our successful projects that reflect our commitment to quality, safety, and timely delivery.
+              </p>
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 px-6 py-3 text-sm font-bold text-white shadow-[0_18px_36px_rgba(249,115,22,0.28)] transition-all duration-300 hover:scale-105 hover:shadow-[0_22px_44px_rgba(249,115,22,0.35)]"
+              >
+                View All Projects
+                <ArrowRight size={18} />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+              {[
+                {
+                  title: 'Industrial HVAC System Installation',
+                  place: 'Pune, Maharashtra',
+                  image: '/hvac-system.jpg',
+                },
+                {
+                  title: 'Electrical Panel & Cable Trenching',
+                  place: 'Chakan, Maharashtra',
+                  image: '/electrical-system.jpg',
+                },
+                {
+                  title: 'Process Piping Installation',
+                  place: 'Ranjangaon, Maharashtra',
+                  image: '/pipe-fabrication.jpg',
+                },
+                {
+                  title: 'Mechanical Equipment Erection',
+                  place: 'Pune, Maharashtra',
+                  image: '/mep-installation.jpg',
+                },
+              ].map((project, index) => (
+                <Link
+                  key={project.title}
+                  href="/projects"
+                  data-scroll="scale"
+                  data-scroll-delay={index > 2 ? '3' : String(index)}
+                  className="group overflow-hidden rounded-lg border border-white/20 bg-white/8 shadow-[0_18px_45px_rgba(2,6,23,0.25)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-amber-300/80"
+                  style={{ animationDelay: `${index * 80}ms` }}
+                >
+                  <div className="relative h-40 overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="mb-2 text-base font-bold leading-snug text-white">{project.title}</h3>
+                    <p className="text-sm font-semibold text-slate-300">{project.place}</p>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Process Section */}
-        <section className="py-20 md:py-28 bg-gradient-to-br from-slate-100 via-white to-cyan-50 relative overflow-hidden">
+        <section data-scroll className="py-20 md:py-28 bg-gradient-to-br from-slate-100 via-white to-cyan-50 relative overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-1/2 right-0 w-96 h-96 bg-sky-300/40 rounded-full blur-3xl"></div>
             <div className="absolute -bottom-16 left-0 w-80 h-80 bg-cyan-200/45 rounded-full blur-3xl"></div>
@@ -276,6 +305,8 @@ export default function Home() {
                 return (
                   <div
                     key={index}
+                    data-scroll="scale"
+                    data-scroll-delay={index > 2 ? '3' : String(index)}
                     className="group relative animate-fadeInUp cursor-pointer"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
@@ -312,82 +343,126 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Testimonials Section */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-slate-50 via-sky-50/80 to-white relative overflow-hidden">
-          <div className="absolute inset-0 opacity-70">
-            <div className="absolute -top-20 right-12 w-72 h-72 bg-sky-200/40 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-10 w-64 h-64 bg-indigo-100/50 rounded-full blur-3xl"></div>
+        {/* Why Choose Us */}
+        <section data-scroll className="py-20 md:py-28 bg-gradient-to-br from-slate-900 via-slate-800 to-[#9a6b2f] relative overflow-hidden">
+          <div className="absolute inset-0 opacity-20">
+            <Image
+              src="/building-interior.jpg"
+              alt="Background"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(15,23,42,0.92),rgba(30,41,59,0.84),rgba(154,107,47,0.58))]"></div>
+            <div className="absolute -top-32 -left-20 w-72 h-72 bg-secondary/35 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-24 right-0 w-96 h-96 bg-sky-300/15 rounded-full blur-3xl"></div>
           </div>
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 animate-fadeInUp">What Our Clients Say</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fadeInUp delay-100">
-                Trusted by industry leaders and growing businesses for exceptional MEP and fabrication solutions
+          <div className="relative max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-1 xl:grid-cols-[1.05fr_1.6fr] gap-10 xl:gap-12 items-start">
+              <div data-scroll="left" className="animate-slideInLeft xl:-mt-10">
+                <div className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-amber-200 mb-5 backdrop-blur-sm">
+                  Trusted Engineering Partner
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">Why Choose Pitambra?</h2>
+                <div className="space-y-5">
+                  {[
+                    { title: '12+ Years Experience', desc: 'Proven track record in MEP and fabrication projects', icon: Medal },
+                    { title: 'Expert Leadership', desc: 'Led by Director Gajendra Pal with professional engineering degrees', icon: BriefcaseBusiness },
+                    { title: 'Quality & Precision', desc: 'Commitment to highest standards and timeline adherence', icon: Shield },
+                    { title: 'Cost-Effective Solutions', desc: 'Efficient project execution delivering maximum value', icon: TrendingUp },
+                  ].map((item, index) => (
+                    <div key={index} className="flex gap-4 p-5 md:p-6 rounded-[28px] border border-white/12 bg-slate-900/35 shadow-[0_18px_45px_rgba(2,6,23,0.18)] backdrop-blur-sm hover:border-amber-300/40 hover:bg-slate-900/45 transition-all duration-300 group cursor-pointer">
+                      <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-yellow-500 via-amber-500 to-yellow-700 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_18px_35px_rgba(245,158,11,0.35)]">
+                        <item.icon className="w-8 h-8 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="text-2xl font-bold text-white mb-2 leading-tight group-hover:text-amber-200 transition-colors duration-300">{item.title}</h4>
+                        <p className="text-slate-200/85 text-lg leading-relaxed group-hover:text-white transition-colors duration-300 max-w-md">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div data-scroll="right" data-scroll-delay="1" className="animate-slideInRight space-y-8 md:space-y-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+                  {[
+                    { src: '/industrial-facility.jpg', alt: 'Industrial MEP plant room' },
+                    { src: '/electrical-system.jpg', alt: 'Electrical control systems' },
+                    { src: '/hvac-system.jpg', alt: 'HVAC ducting system' },
+                    { src: '/fabrication.jpg', alt: 'Structural fabrication work' },
+                  ].map((image, index) => (
+                    <div
+                      key={index}
+                      className="relative overflow-hidden rounded-[24px] border border-white/20 bg-white/10 shadow-[0_22px_55px_rgba(2,6,23,0.28)] min-h-[220px] md:min-h-[280px] group"
+                    >
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/35 via-transparent to-white/10" />
+                    </div>
+                  ))}
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 border border-white/12 bg-slate-950/30 backdrop-blur-sm rounded-[28px] px-5 md:px-6 py-5">
+                  {[
+                    { icon: Shield, title: 'Safety First' },
+                    { icon: BadgeCheck, title: 'Quality Assurance' },
+                    { icon: Clock, title: 'On-Time Delivery' },
+                    { icon: BriefcaseBusiness, title: 'Client Satisfaction' },
+                    { icon: Factory, title: 'Innovative Solutions' },
+                  ].map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex min-h-16 min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white"
+                    >
+                      <item.icon className="h-8 w-8 flex-shrink-0 text-amber-300 sm:h-9 sm:w-9" />
+                      <span className="min-w-0 text-sm font-semibold uppercase leading-snug tracking-wide break-words">
+                        {item.title}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Clients Section */}
+        <section data-scroll className="py-20 md:py-28 bg-gradient-to-br from-[#e8f5ff] via-[#f8fbff] to-[#dceeff] relative overflow-hidden">
+          <div className="absolute inset-0 opacity-90">
+            <div className="absolute -left-20 top-10 h-80 w-80 rounded-full bg-sky-300/35 blur-3xl" />
+            <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-cyan-200/45 blur-3xl" />
+            <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(14,165,233,0.08)_0%,transparent_36%,rgba(245,158,11,0.08)_100%)]" />
+          </div>
+          <div className="relative max-w-7xl mx-auto px-6">
+            <div className="text-center mb-14">
+              <div className="inline-flex items-center rounded-full border border-sky-200 bg-white/80 px-4 py-2 text-sm font-semibold text-primary mb-5 shadow-sm backdrop-blur-sm">
+                Trusted By Leading Brands
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 animate-fadeInUp">Our Clients</h2>
+              <p className="mx-auto max-w-3xl text-lg leading-8 text-slate-600 animate-fadeInUp delay-100">
+                We are proud to support respected automotive, industrial, and infrastructure teams with dependable engineering execution.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  name: 'Rajesh Kumar',
-                  title: 'Project Manager, Construction Co.',
-                  content: 'Pitambra Fab Tech delivered exceptional quality and completed our complex MEP project on schedule. Their team&apos;s expertise was invaluable.',
-                  rating: 5,
-                  image: '/team-working.jpg'
-                },
-                {
-                  name: 'Priya Sharma',
-                  title: 'Facility Director, Tech Park',
-                  content: 'Outstanding custom fabrication work! The precision and attention to detail exceeded our expectations. Highly recommended.',
-                  rating: 5,
-                  image: '/industrial-facility.jpg'
-                },
-                {
-                  name: 'Amit Patel',
-                  title: 'Site Engineer, Infrastructure',
-                  content: 'Professional team with deep technical knowledge. They solved our challenging MEP integration issues efficiently and cost-effectively.',
-                  rating: 5,
-                  image: '/project-completion.jpg'
-                },
-              ].map((testimonial, index) => (
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
+              {clients.map((client, index) => (
                 <div
-                  key={index}
-                  className="group relative bg-gradient-to-br from-white via-card to-sky-50/40 border-2 border-sky-200/80 shadow-[0_18px_50px_rgba(15,23,42,0.08)] rounded-xl overflow-hidden hover:border-sky-400 transition-all duration-500 hover:-translate-y-2 animate-fadeInUp"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  key={client.name}
+                  data-scroll="scale"
+                  data-scroll-delay={String(index % 4)}
+                  className="group relative flex h-32 items-center justify-center overflow-hidden rounded-2xl border border-sky-200/80 bg-white/95 p-5 shadow-[0_16px_38px_rgba(14,116,144,0.10)] transition-all duration-300 hover:-translate-y-1 hover:border-amber-300 hover:shadow-[0_22px_48px_rgba(245,158,11,0.13)] animate-fadeInUp"
+                  style={{ animationDelay: `${index * 60}ms` }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/15 to-primary/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                  <div className="absolute inset-0 opacity-10">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-
-                  <div className="relative p-8 z-10">
-                    <div className="flex gap-1 mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} size={18} className="fill-secondary text-secondary" />
-                      ))}
-                    </div>
-                    <p className="text-muted-foreground leading-relaxed mb-6 italic font-medium">&quot;{testimonial.content}&quot;</p>
-                    <div className="pt-6 border-t border-border/30 flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full overflow-hidden relative border-2 border-secondary">
-                        <Image
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div>
-                        <p className="font-bold text-foreground">{testimonial.name}</p>
-                        <p className="text-sm text-secondary font-semibold">{testimonial.title}</p>
-                      </div>
-                    </div>
-                  </div>
+                  <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-primary via-sky-500 to-secondary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <Image
+                    src={client.logo}
+                    alt={`${client.name} logo`}
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                    className="object-contain p-5 transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
               ))}
             </div>
@@ -395,10 +470,11 @@ export default function Home() {
         </section>
 
         {/* Delivery Strength */}
-        <section className="py-20 md:py-28 bg-gradient-to-b from-white via-slate-50 to-amber-50/60 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-70">
-            <div className="absolute -top-24 left-6 h-72 w-72 rounded-full bg-amber-200/35 blur-3xl" />
-            <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-sky-200/25 blur-3xl" />
+        <section data-scroll className="py-20 md:py-28 bg-gradient-to-br from-amber-50 via-orange-50 to-white relative overflow-hidden">
+          <div className="absolute inset-0 opacity-90">
+            <div className="absolute -top-24 left-6 h-72 w-72 rounded-full bg-amber-300/35 blur-3xl" />
+            <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-orange-200/40 blur-3xl" />
+            <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(245,158,11,0.09),transparent_42%,rgba(14,116,144,0.06))]" />
           </div>
           <div className="relative max-w-7xl mx-auto px-6">
             <div className="text-center mb-14">
@@ -478,19 +554,105 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Testimonials Section */}
+        <section data-scroll className="py-20 md:py-28 bg-gradient-to-br from-slate-950 via-primary to-slate-900 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-70">
+            <div className="absolute -top-20 right-12 w-72 h-72 bg-sky-500/20 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-10 w-64 h-64 bg-amber-300/20 rounded-full blur-3xl"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.06),transparent_44%,rgba(245,158,11,0.10))]"></div>
+          </div>
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 animate-fadeInUp">Testimonials</h2>
+              <p className="text-lg text-slate-200 max-w-2xl mx-auto animate-fadeInUp delay-100">
+                Feedback from project teams who rely on our MEP and fabrication execution
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  name: 'Rajesh Kumar',
+                  title: 'Project Manager, Construction Co.',
+                  content: 'Pitambra Fab Tech delivered exceptional quality and completed our complex MEP project on schedule. Their team&apos;s expertise was invaluable.',
+                  rating: 5,
+                  image: '/team-working.jpg'
+                },
+                {
+                  name: 'Priya Sharma',
+                  title: 'Facility Director, Tech Park',
+                  content: 'Outstanding custom fabrication work! The precision and attention to detail exceeded our expectations. Highly recommended.',
+                  rating: 5,
+                  image: '/industrial-facility.jpg'
+                },
+                {
+                  name: 'Amit Patel',
+                  title: 'Site Engineer, Infrastructure',
+                  content: 'Professional team with deep technical knowledge. They solved our challenging MEP integration issues efficiently and cost-effectively.',
+                  rating: 5,
+                  image: '/project-completion.jpg'
+                },
+              ].map((testimonial, index) => (
+                <div
+                  key={index}
+                  data-scroll="scale"
+                  data-scroll-delay={String(index)}
+                  className="group relative bg-white/95 border-2 border-white/15 shadow-[0_22px_55px_rgba(2,6,23,0.24)] rounded-xl overflow-hidden hover:border-amber-300/70 transition-all duration-500 hover:-translate-y-2 animate-fadeInUp"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/15 to-primary/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                  <div className="absolute inset-0 opacity-10">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <div className="relative p-8 z-10">
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} size={18} className="fill-secondary text-secondary" />
+                      ))}
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed mb-6 italic font-medium">&quot;{testimonial.content}&quot;</p>
+                    <div className="pt-6 border-t border-border/30 flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full overflow-hidden relative border-2 border-secondary">
+                        <Image
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div>
+                        <p className="font-bold text-foreground">{testimonial.name}</p>
+                        <p className="text-sm text-secondary font-semibold">{testimonial.title}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Stats Banner Section */}
-        <section className="py-20 md:py-28 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground relative overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
+        <section data-scroll className="py-20 md:py-28 bg-gradient-to-br from-slate-100 via-sky-50 to-white text-slate-900 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-18">
             <Image
               src="/industrial-facility.jpg"
               alt="Background"
               fill
-              className="object-cover mix-blend-overlay"
+              className="object-cover"
             />
           </div>
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute -top-40 -left-40 w-80 h-80 bg-secondary rounded-full blur-3xl animate-float"></div>
-            <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-secondary/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(248,250,252,0.94),rgba(240,249,255,0.9),rgba(255,255,255,0.94))]"></div>
+          <div className="absolute inset-0 opacity-70">
+            <div className="absolute -top-40 -left-40 w-80 h-80 bg-sky-300/35 rounded-full blur-3xl animate-float"></div>
+            <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-primary/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
           </div>
           <div className="relative max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
@@ -502,13 +664,15 @@ export default function Home() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="animate-fadeInUp"
+                  data-scroll="scale"
+                  data-scroll-delay={index > 2 ? '3' : String(index)}
+                  className="rounded-2xl border border-sky-200/80 bg-white/88 px-4 py-7 shadow-[0_20px_48px_rgba(15,23,42,0.08)] backdrop-blur-sm animate-fadeInUp sm:px-5"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="text-5xl md:text-6xl font-bold mb-2 animate-float" style={{ animationDelay: `${index * 150}ms` }}>
+                  <div className="mb-2 whitespace-nowrap text-[clamp(2.25rem,3.2vw,3rem)] font-bold leading-none text-primary animate-float" style={{ animationDelay: `${index * 150}ms` }}>
                     {item.stat}
                   </div>
-                  <p className="text-lg opacity-90 font-semibold">{item.label}</p>
+                  <p className="text-lg text-slate-700 font-semibold">{item.label}</p>
                 </div>
               ))}
             </div>
@@ -516,7 +680,7 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="relative py-20 md:py-28 bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 text-foreground overflow-hidden border-t border-amber-100">
+        <section data-scroll className="relative py-20 md:py-28 bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 text-foreground overflow-hidden border-t border-amber-100">
           <div className="absolute inset-0 opacity-100">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.18),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.12),transparent_32%)]"></div>
             <div className="absolute top-8 left-10 w-72 h-72 bg-amber-300/25 rounded-full blur-3xl animate-float"></div>

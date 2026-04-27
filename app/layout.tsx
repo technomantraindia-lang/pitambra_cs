@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { CursorGlow } from '@/components/cursor-glow'
+import { ScrollReveal } from '@/components/scroll-reveal'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -39,6 +40,7 @@ export default function RootLayout({
     <html lang="en" className="bg-background">
       <body className="font-sans antialiased">
         <CursorGlow />
+        <ScrollReveal />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
