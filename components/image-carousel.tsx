@@ -48,7 +48,9 @@ export function ImageCarousel({ images }: CarouselProps) {
               alt={image.alt}
               fill
               className="object-cover"
-              priority
+              priority={index === 0}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              sizes="100vw"
             />
           </div>
         ))}
