@@ -29,14 +29,8 @@ export function Footer() {
           <div className="px-6 py-7 md:px-8">
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div className="max-w-2xl">
-              <div className="mb-4 flex h-16 w-64 items-center overflow-hidden rounded-2xl bg-white px-3 shadow-lg">
-                <Image
-                  src="/logo.png"
-                  alt="Pitambra Fab Tech"
-                  width={300}
-                  height={70}
-                  className="h-full w-full object-contain"
-                />
+              <div className="mb-4 inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-amber-200">
+                Pitambra Fabtech Pvt Ltd
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-white">Engineering built for dependable project delivery.</h3>
               <p className="mt-3 text-sm md:text-base text-slate-200/85">
