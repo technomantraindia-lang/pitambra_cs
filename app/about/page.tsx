@@ -2,7 +2,7 @@ import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { ImageCarousel } from '@/components/image-carousel'
 import Image from 'next/image'
-import { Award, Users, Target, Lightbulb } from 'lucide-react'
+import { Award, Users, Target, Lightbulb, Wrench, Building2, Factory, CheckCircle2 } from 'lucide-react'
 
 export default function About() {
   return (
@@ -147,32 +147,45 @@ export default function About() {
               {[
                 {
                   category: 'MEP Systems',
+                  icon: Wrench,
                   items: ['Mechanical Design', 'Electrical Systems', 'Plumbing Solutions', 'Integrated MEP Coordination', 'System Optimization']
                 },
                 {
                   category: 'Project Types',
+                  icon: Building2,
                   items: ['Residential Buildings', 'Commercial Complexes', 'Industrial Facilities', 'Institutional Projects', 'Custom Infrastructure']
                 },
                 {
                   category: 'Fabrication Services',
+                  icon: Factory,
                   items: ['Custom Metal Work', 'Structural Components', 'Specialized Installations', 'Industrial Equipment', 'Precision Assembly']
                 },
-              ].map((expertise, index) => (
-                <div key={index} className="group bg-gradient-to-br from-white via-card to-amber-50/40 border border-slate-200/80 rounded-[26px] p-8 shadow-[0_18px_45px_rgba(15,23,42,0.05)] hover:-translate-y-2 hover:border-amber-300/70 hover:shadow-[0_24px_55px_rgba(245,158,11,0.12)] transition-all duration-500">
-                  <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center justify-between">
-                    {expertise.category}
-                    <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-r from-secondary to-primary group-hover:scale-125 transition-transform duration-300" />
-                  </h3>
-                  <ul className="space-y-3">
-                    {expertise.items.map((item, idx) => (
-                      <li key={idx} className="flex gap-3 items-start rounded-xl px-3 py-2 hover:bg-white/80 transition-colors duration-300">
-                        <div className="w-2 h-2 rounded-full bg-primary mt-2" />
-                        <span className="text-muted-foreground">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              ].map((expertise, index) => {
+                const Icon = expertise.icon
+                return (
+                  <div key={index} className="group relative overflow-hidden rounded-[26px] border border-slate-200/80 bg-gradient-to-br from-white via-card to-amber-50/40 p-7 shadow-[0_18px_45px_rgba(15,23,42,0.05)] transition-all duration-500 hover:-translate-y-2 hover:border-amber-300/70 hover:shadow-[0_24px_55px_rgba(245,158,11,0.12)]">
+                    <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-amber-200/25 blur-2xl transition-opacity duration-500 group-hover:opacity-80" />
+                    <div className="relative mb-7 flex items-center gap-4">
+                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-amber-200 bg-gradient-to-br from-amber-100 to-sky-50 shadow-sm">
+                        <Icon size={26} className="text-secondary" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-[0.22em] text-secondary">Expertise</p>
+                        <h3 className="text-xl font-bold text-foreground">{expertise.category}</h3>
+                      </div>
+                    </div>
+
+                    <ul className="relative space-y-3">
+                      {expertise.items.map((item, idx) => (
+                        <li key={idx} className="flex items-center gap-3 rounded-xl border border-transparent bg-white/45 px-3 py-2.5 transition-all duration-300 hover:border-amber-200/80 hover:bg-white">
+                          <CheckCircle2 size={17} className="shrink-0 text-primary" />
+                          <span className="text-sm font-medium leading-6 text-slate-600">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </section>

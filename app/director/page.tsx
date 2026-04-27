@@ -1,6 +1,6 @@
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { Award, Briefcase, GraduationCap, CheckCircle2 } from 'lucide-react'
+import { Award, Briefcase, GraduationCap, CheckCircle2, Wrench, ClipboardCheck, UsersRound } from 'lucide-react'
 import Image from 'next/image'
 
 export default function Director() {
@@ -162,33 +162,48 @@ export default function Director() {
               {[
                 {
                   title: 'MEP Systems',
+                  icon: Wrench,
                   skills: ['Mechanical Design', 'Electrical Systems', 'Plumbing Solutions', 'HVAC Integration', 'System Coordination', 'Performance Analysis']
                 },
                 {
                   title: 'Project Execution',
+                  icon: ClipboardCheck,
                   skills: ['Planning & Design', 'Vendor Management', 'Quality Control', 'Timeline Management', 'Cost Optimization', 'Documentation']
                 },
                 {
                   title: 'Leadership',
+                  icon: UsersRound,
                   skills: ['Team Management', 'Strategic Planning', 'Problem Solving', 'Client Relations', 'Process Improvement', 'Risk Management']
                 },
-              ].map((section, index) => (
-                <div 
-                  key={index} 
-                  className="bg-gradient-to-br from-white via-card to-amber-50/40 border border-slate-200/80 rounded-[28px] p-8 hover:border-amber-300/70 hover:shadow-[0_24px_55px_rgba(245,158,11,0.10)] hover:-translate-y-2 transition-all duration-500 animate-fadeInUp"
-                  style={{ animationDelay: `${index * 150}ms` }}
-                >
-                  <h3 className="text-2xl font-bold text-foreground mb-8 pb-4 border-b-2 border-amber-200/80">{section.title}</h3>
-                  <div className="space-y-4">
-                    {section.skills.map((skill, idx) => (
-                      <div key={idx} className="flex gap-3 items-center group hover:pl-2 transition-all duration-200 rounded-xl px-2 py-1 hover:bg-white/70">
-                        <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-secondary to-primary group-hover:scale-125 transition-transform duration-200" />
-                        <span className="text-muted-foreground group-hover:text-foreground transition-colors duration-200 font-medium">{skill}</span>
+              ].map((section, index) => {
+                const Icon = section.icon
+                return (
+                  <div 
+                    key={index} 
+                    className="group relative overflow-hidden rounded-[28px] border border-slate-200/80 bg-gradient-to-br from-white via-card to-amber-50/40 p-7 shadow-[0_18px_45px_rgba(15,23,42,0.05)] transition-all duration-500 hover:-translate-y-2 hover:border-amber-300/70 hover:shadow-[0_24px_55px_rgba(245,158,11,0.12)] animate-fadeInUp"
+                    style={{ animationDelay: `${index * 150}ms` }}
+                  >
+                    <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-amber-200/25 blur-2xl transition-opacity duration-500 group-hover:opacity-80" />
+                    <div className="relative mb-7 flex items-center gap-4 border-b border-amber-200/80 pb-6">
+                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-amber-200 bg-gradient-to-br from-amber-100 to-sky-50 shadow-sm transition-transform duration-300 group-hover:scale-105">
+                        <Icon size={26} className="text-secondary" />
                       </div>
-                    ))}
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-[0.22em] text-secondary">Competency</p>
+                        <h3 className="text-2xl font-bold text-foreground">{section.title}</h3>
+                      </div>
+                    </div>
+                    <div className="relative space-y-3">
+                      {section.skills.map((skill, idx) => (
+                        <div key={idx} className="flex items-center gap-3 rounded-xl border border-transparent bg-white/45 px-3 py-2.5 transition-all duration-300 hover:border-amber-200/80 hover:bg-white">
+                          <CheckCircle2 size={17} className="shrink-0 text-primary" />
+                          <span className="text-sm font-semibold leading-6 text-slate-600">{skill}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </section>

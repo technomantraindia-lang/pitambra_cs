@@ -5,7 +5,7 @@ import { Footer } from '@/components/footer'
 import { ImageCarousel } from '@/components/image-carousel'
 import Image from 'next/image'
 import { useMemo, useState } from 'react'
-import { MapPin, Calendar, Tag, ArrowRight } from 'lucide-react'
+import { MapPin, Calendar, Tag, ArrowRight, Wrench, Zap, Droplet, Factory, CheckCircle2 } from 'lucide-react'
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All')
@@ -225,23 +225,35 @@ export default function Projects() {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-16">Services Provided</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
-                { title: 'Mechanical Engineering', items: ['HVAC Systems', 'Equipment Installation', 'Piping Networks', 'System Design', 'Performance Optimization'] },
-                { title: 'Electrical Systems', items: ['Power Distribution', 'Lighting Design', 'Electrical Installation', 'Building Automation', 'Safety Systems'] },
-                { title: 'Plumbing Solutions', items: ['Water Supply', 'Drainage Systems', 'Sanitary Design', 'Hot Water Systems', 'Safety Compliance'] },
-                { title: 'Custom Fabrication', items: ['Structural Steel', 'Metal Work', 'Specialized Components', 'Industrial Equipment', 'Precision Assembly'] },
-              ].map((service, index) => (
-                <div key={index} className="group rounded-[28px] border border-slate-200/80 bg-gradient-to-br from-white via-card to-sky-50/40 p-8 shadow-[0_18px_45px_rgba(15,23,42,0.06)] hover:-translate-y-2 hover:border-sky-300 hover:shadow-[0_24px_55px_rgba(56,189,248,0.10)] transition-all duration-500">
-                  <h3 className="text-xl font-bold text-foreground mb-6">{service.title}</h3>
-                  <ul className="space-y-3">
-                    {service.items.map((item, idx) => (
-                      <li key={idx} className="flex gap-3 items-start rounded-xl px-3 py-2 hover:bg-white/80 transition-colors duration-300">
-                        <div className="w-2 h-2 rounded-full bg-primary mt-2" />
-                        <span className="text-muted-foreground">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+                { title: 'Mechanical Engineering', icon: Wrench, items: ['HVAC Systems', 'Equipment Installation', 'Piping Networks', 'System Design', 'Performance Optimization'] },
+                { title: 'Electrical Systems', icon: Zap, items: ['Power Distribution', 'Lighting Design', 'Electrical Installation', 'Building Automation', 'Safety Systems'] },
+                { title: 'Plumbing Solutions', icon: Droplet, items: ['Water Supply', 'Drainage Systems', 'Sanitary Design', 'Hot Water Systems', 'Safety Compliance'] },
+                { title: 'Custom Fabrication', icon: Factory, items: ['Structural Steel', 'Metal Work', 'Specialized Components', 'Industrial Equipment', 'Precision Assembly'] },
+              ].map((service, index) => {
+                const Icon = service.icon
+                return (
+                  <div key={index} className="group relative overflow-hidden rounded-[28px] border border-slate-200/80 bg-gradient-to-br from-white via-card to-sky-50/40 p-7 shadow-[0_18px_45px_rgba(15,23,42,0.06)] transition-all duration-500 hover:-translate-y-2 hover:border-sky-300 hover:shadow-[0_24px_55px_rgba(56,189,248,0.12)]">
+                    <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-sky-200/30 blur-2xl transition-opacity duration-500 group-hover:opacity-90" />
+                    <div className="relative mb-7 flex items-center gap-4 border-b border-sky-100 pb-6">
+                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-sky-200 bg-gradient-to-br from-sky-50 to-amber-50 shadow-sm transition-transform duration-300 group-hover:scale-105">
+                        <Icon size={26} className="text-secondary" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-[0.22em] text-secondary">Service</p>
+                        <h3 className="text-xl font-bold text-foreground">{service.title}</h3>
+                      </div>
+                    </div>
+                    <ul className="relative space-y-3">
+                      {service.items.map((item, idx) => (
+                        <li key={idx} className="flex items-center gap-3 rounded-xl border border-transparent bg-white/50 px-3 py-2.5 transition-all duration-300 hover:border-sky-200/80 hover:bg-white">
+                          <CheckCircle2 size={17} className="shrink-0 text-primary" />
+                          <span className="text-sm font-medium leading-6 text-slate-600">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </section>

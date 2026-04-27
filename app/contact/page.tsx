@@ -8,6 +8,9 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send, CircleUserRound } from
 import { useState } from 'react'
 
 export default function Contact() {
+  const factoryAddress = 'Plot No. SME-1/110, GIDC Estate, Halol-2 (Maswad), Taluka Halol, Panchmahals, Gujarat 389350'
+  const factoryMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(factoryAddress)}`
+
   const contactPeople = [
     {
       name: 'Gajendra Pal',
@@ -36,20 +39,67 @@ export default function Contact() {
     message: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
-    setTimeout(() => {
+
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
+    const form = e.currentTarget
+    const data = new FormData(form)
+
+    if (data.get('botcheck')) return
+
+    if (!accessKey) {
+      setSubmitError('Web3Forms access key is missing. Please add it in .env.local.')
+      return
+    }
+
+    setIsSubmitting(true)
+    setSubmitError('')
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: 'New Project Inquiry - Pitambra Fabtech Website',
+          from_name: 'Pitambra Fabtech Website',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || 'Not provided',
+          company: formData.company || 'Not provided',
+          project_type: formData.projectType || 'Not selected',
+          message: formData.message,
+        }),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Unable to send message. Please try again.')
+      }
+
+      setSubmitted(true)
       setFormData({ name: '', email: '', phone: '', company: '', projectType: '', message: '' })
-      setSubmitted(false)
-    }, 3000)
+      setTimeout(() => {
+        setSubmitted(false)
+      }, 3000)
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : 'Unable to send message. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -125,14 +175,14 @@ export default function Contact() {
                   {
                     icon: Mail,
                     title: 'Email',
-                    value: 'pitambrafabtech@gmail.com',
-                    href: 'mailto:pitambrafabtech@gmail.com'
+                    value: 'Info@pitambrafabtech.com',
+                    href: 'mailto:Info@pitambrafabtech.com'
                   },
                   {
                     icon: MapPin,
                     title: 'Location',
-                    value: 'Plot No. SME-1/110, GIDC Estate, Halol-2 (Maswad), Taluka Halol, Panchmahals, Gujarat 389350',
-                    href: '#'
+                    value: factoryAddress,
+                    href: factoryMapsUrl
                   },
                   {
                     icon: Clock,
@@ -178,6 +228,8 @@ export default function Contact() {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-6">
+                      <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
+
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                           <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -278,11 +330,18 @@ export default function Contact() {
                         />
                       </div>
 
+                      {submitError && (
+                        <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+                          {submitError}
+                        </div>
+                      )}
+
                       <button
                         type="submit"
-                        className="w-full bg-primary text-primary-foreground font-semibold py-3 rounded-lg hover:bg-primary/90 transition-colors"
+                        disabled={isSubmitting}
+                        className="w-full bg-primary text-primary-foreground font-semibold py-3 rounded-lg hover:bg-primary/90 transition-colors disabled:cursor-not-allowed disabled:opacity-70"
                       >
-                        Send Message
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
                       </button>
 
                       <p className="text-xs text-muted-foreground text-center">
@@ -312,7 +371,7 @@ export default function Contact() {
                 <div className="relative min-h-[420px]">
                   <iframe
                     title="Pitambra Fab Tech Factory Location"
-                    src="https://maps.google.com/maps?q=Plot%20No.%20SME-1%2F110%2C%20GIDC%20Estate%2C%20Halol-2%20(Maswad)%2C%20Taluka%20Halol%2C%20Panchmahals%2C%20Gujarat%20389350&z=15&output=embed"
+                    src={`https://maps.google.com/maps?q=${encodeURIComponent(factoryAddress)}&z=15&output=embed`}
                     className="h-full w-full border-0"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
@@ -325,10 +384,10 @@ export default function Contact() {
                   </div>
                   <h3 className="text-2xl font-bold text-foreground mb-4">Factory Address</h3>
                   <p className="text-muted-foreground leading-8 mb-8">
-                    Plot No. SME-1/110, GIDC Estate, Halol-2 (Maswad), Taluka Halol, Panchmahals, Gujarat 389350
+                    {factoryAddress}
                   </p>
                   <a
-                    href="https://maps.google.com/?q=Plot%20No.%20SME-1%2F110%2C%20GIDC%20Estate%2C%20Halol-2%20(Maswad)%2C%20Taluka%20Halol%2C%20Panchmahals%2C%20Gujarat%20389350"
+                    href={factoryMapsUrl}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-6 py-3 text-sm font-bold text-white shadow-[0_18px_40px_rgba(245,158,11,0.28)] transition-all duration-300 hover:scale-105 hover:shadow-[0_22px_48px_rgba(249,115,22,0.34)]"

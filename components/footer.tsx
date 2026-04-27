@@ -126,8 +126,8 @@ export function Footer() {
               </div>
               <div className="flex gap-3 rounded-2xl border border-white/10 bg-white/6 px-4 py-3">
                 <Mail size={16} className="flex-shrink-0 mt-0.5 text-amber-300" />
-                <a href="mailto:pitambrafabtech@gmail.com" className="text-slate-200/85 hover:text-white transition-colors break-all">
-                  pitambrafabtech@gmail.com
+                <a href="mailto:Info@pitambrafabtech.com" className="text-slate-200/85 hover:text-white transition-colors break-all">
+                  Info@pitambrafabtech.com
                 </a>
               </div>
               <div className="flex gap-3 rounded-2xl border border-white/10 bg-white/6 px-4 py-3">
