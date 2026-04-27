@@ -96,22 +96,22 @@ export function Footer() {
           <div>
             <h4 className="text-lg font-bold text-white mb-4">Core Services</h4>
             <div className="space-y-3 text-sm">
-              <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/7 px-4 py-3 transition-colors hover:bg-white/10">
+              <Link href="/services#mechanical-engineering" className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/7 px-4 py-3 transition-colors hover:border-amber-300/30 hover:bg-white/10">
                 <Wrench size={16} className="text-amber-300" />
                 <span className="text-slate-200/85">Mechanical Engineering</span>
-              </div>
-              <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/7 px-4 py-3 transition-colors hover:bg-white/10">
+              </Link>
+              <Link href="/services#electrical-systems" className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/7 px-4 py-3 transition-colors hover:border-amber-300/30 hover:bg-white/10">
                 <Zap size={16} className="text-amber-300" />
                 <span className="text-slate-200/85">Electrical Systems</span>
-              </div>
-              <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/7 px-4 py-3 transition-colors hover:bg-white/10">
+              </Link>
+              <Link href="/services#plumbing-solutions" className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/7 px-4 py-3 transition-colors hover:border-amber-300/30 hover:bg-white/10">
                 <Droplet size={16} className="text-amber-300" />
                 <span className="text-slate-200/85">Plumbing Solutions</span>
-              </div>
-              <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/7 px-4 py-3 transition-colors hover:bg-white/10">
+              </Link>
+              <Link href="/services#custom-fabrication" className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/7 px-4 py-3 transition-colors hover:border-amber-300/30 hover:bg-white/10">
                 <Factory size={16} className="text-amber-300" />
                 <span className="text-slate-200/85">Custom Fabrication</span>
-              </div>
+              </Link>
             </div>
           </div>
 

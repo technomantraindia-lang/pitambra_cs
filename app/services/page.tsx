@@ -7,6 +7,7 @@ import { Wrench, Zap, Droplet, Factory, CheckCircle2, Flame, Building2, ShieldCh
 export default function Services() {
   const services = [
     {
+      id: 'mechanical-engineering',
       icon: Wrench,
       title: 'Mechanical Engineering',
       description: 'Execution-focused mechanical works for industrial facilities, utility systems, shutdown jobs, and fabrication-linked installations.',
@@ -20,6 +21,7 @@ export default function Services() {
       ]
     },
     {
+      id: 'electrical-systems',
       icon: Zap,
       title: 'Electrical Systems',
       description: 'Complete industrial and commercial electrical installation, distribution, testing, commissioning, and maintenance support.',
@@ -33,6 +35,7 @@ export default function Services() {
       ]
     },
     {
+      id: 'plumbing-solutions',
       icon: Droplet,
       title: 'Plumbing & Fire Fighting',
       description: 'Water, drainage, treatment, and fire fighting systems handled with installation and commissioning support.',
@@ -46,6 +49,7 @@ export default function Services() {
       ]
     },
     {
+      id: 'custom-fabrication',
       icon: Factory,
       title: 'Fabrication, Civil & Interior Works',
       description: 'Integrated support across fabrication, civil infrastructure, aluminium partitioning, interiors, and utility-ready construction packages.',
@@ -162,7 +166,7 @@ export default function Services() {
                 const Icon = service.icon
                 const images = ['/hvac-system.jpg', '/electrical-system.jpg', '/plumbing-system.jpg?v=2', '/fabrication.jpg']
                 return (
-                  <div key={index} className="group relative overflow-hidden rounded-[30px] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,252,0.96))] shadow-[0_24px_60px_rgba(15,23,42,0.08)] transition-all duration-500 hover:-translate-y-2 hover:border-amber-300/70 hover:shadow-[0_30px_70px_rgba(245,158,11,0.14)] animate-fadeInUp" style={{ animationDelay: `${index * 100}ms` }}>
+                  <div id={service.id} key={index} className="group relative scroll-mt-28 overflow-hidden rounded-[30px] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,252,0.96))] shadow-[0_24px_60px_rgba(15,23,42,0.08)] transition-all duration-500 hover:-translate-y-2 hover:border-amber-300/70 hover:shadow-[0_30px_70px_rgba(245,158,11,0.14)] animate-fadeInUp" style={{ animationDelay: `${index * 100}ms` }}>
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,0.14),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.08),transparent_30%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                     <div className="relative">
