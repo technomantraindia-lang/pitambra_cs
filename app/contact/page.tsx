@@ -8,6 +8,25 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send, CircleUserRound } from
 import { useState } from 'react'
 
 export default function Contact() {
+  const contactPeople = [
+    {
+      name: 'Gajendra Pal',
+      role: 'Director',
+      phone: '+91 87588 15986',
+      phoneHref: 'tel:+918758815986',
+      email: 'Gajendra@Pitambrafabtech.com',
+      emailHref: 'mailto:Gajendra@Pitambrafabtech.com',
+    },
+    {
+      name: 'Yogendra Mishra',
+      role: 'Director',
+      phone: '+91 76007 71861',
+      phoneHref: 'tel:+917600771861',
+      email: 'Yogendra@Pitambrafabtech.com',
+      emailHref: 'mailto:Yogendra@Pitambrafabtech.com',
+    },
+  ]
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -69,13 +88,40 @@ export default function Contact() {
                   <h2 className="text-2xl font-bold text-foreground mb-8">Contact Information</h2>
                 </div>
 
+                <div className="rounded-xl border border-border bg-gradient-to-br from-card to-card/50 p-5 shadow-sm animate-fadeInUp">
+                  <div className="mb-4 flex items-center gap-3">
+                    <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-secondary/20 to-primary/20">
+                      <CircleUserRound size={22} className="text-secondary" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-foreground">Contact Person</p>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Directors</p>
+                    </div>
+                  </div>
+
+                  <div className="divide-y divide-border/70 rounded-lg border border-border/70 bg-background/60">
+                    {contactPeople.map((person) => (
+                      <div key={person.email} className="p-4">
+                        <div className="mb-3 flex items-baseline justify-between gap-3">
+                          <p className="text-sm font-bold text-foreground">{person.name}</p>
+                          <p className="shrink-0 text-xs font-semibold text-secondary">{person.role}</p>
+                        </div>
+                        <div className="space-y-2 text-xs">
+                          <a href={person.phoneHref} className="flex min-w-0 items-center gap-2 text-muted-foreground transition-colors hover:text-foreground">
+                            <Phone size={14} className="shrink-0 text-secondary" />
+                            {person.phone}
+                          </a>
+                          <a href={person.emailHref} className="flex min-w-0 items-center gap-2 text-muted-foreground transition-colors hover:text-foreground">
+                            <Mail size={14} className="shrink-0 text-secondary" />
+                            <span className="break-all">{person.email}</span>
+                          </a>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
                 {[
-                  {
-                    icon: Phone,
-                    title: 'Phone',
-                    value: '+91 87588 15986',
-                    href: 'tel:+918758815986'
-                  },
                   {
                     icon: Mail,
                     title: 'Email',
@@ -86,12 +132,6 @@ export default function Contact() {
                     icon: MapPin,
                     title: 'Location',
                     value: 'Plot No. SME-1/110, GIDC Estate, Halol-2 (Maswad), Taluka Halol, Panchmahals, Gujarat 389350',
-                    href: '#'
-                  },
-                  {
-                    icon: CircleUserRound,
-                    title: 'Contact Person',
-                    value: 'Mr Gajendra Pal',
                     href: '#'
                   },
                   {
@@ -106,15 +146,15 @@ export default function Contact() {
                     <a
                       key={index}
                       href={item.href}
-                      className="group flex gap-4 p-6 rounded-xl bg-gradient-to-br from-card to-card/50 border border-border hover:border-secondary/60 hover:shadow-xl hover:scale-105 transition-all duration-500 animate-fadeInUp"
+                      className="group flex gap-3 rounded-xl border border-border bg-gradient-to-br from-card to-card/50 p-5 shadow-sm transition-all duration-300 hover:border-secondary/60 hover:shadow-lg animate-fadeInUp"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
-                      <div className="w-14 h-14 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                        <Icon size={28} className="text-secondary" />
+                      <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-secondary/20 to-primary/20 transition-transform duration-300 group-hover:scale-105">
+                        <Icon size={22} className="text-secondary" />
                       </div>
-                      <div className="flex-1">
+                      <div className="min-w-0 flex-1">
                         <p className="font-bold text-foreground">{item.title}</p>
-                        <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">{item.value}</p>
+                        <p className="text-sm leading-6 text-muted-foreground transition-colors duration-300 group-hover:text-foreground">{item.value}</p>
                       </div>
                     </a>
                   )

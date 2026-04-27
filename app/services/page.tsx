@@ -132,7 +132,7 @@ export default function Services() {
               images={[
                 { src: '/hvac-system.jpg', alt: 'HVAC Systems' },
                 { src: '/electrical-system.jpg', alt: 'Electrical Systems' },
-                { src: '/plumbing-system.jpg', alt: 'Plumbing' },
+                { src: '/plumbing-system.jpg?v=2', alt: 'Plumbing' },
                 { src: '/fabrication.jpg', alt: 'Fabrication' },
               ]}
             />
@@ -160,7 +160,7 @@ export default function Services() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {services.map((service, index) => {
                 const Icon = service.icon
-                const images = ['/hvac-system.jpg', '/electrical-system.jpg', '/plumbing-system.jpg', '/fabrication.jpg']
+                const images = ['/hvac-system.jpg', '/electrical-system.jpg', '/plumbing-system.jpg?v=2', '/fabrication.jpg']
                 return (
                   <div key={index} className="group relative overflow-hidden rounded-[30px] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,252,0.96))] shadow-[0_24px_60px_rgba(15,23,42,0.08)] transition-all duration-500 hover:-translate-y-2 hover:border-amber-300/70 hover:shadow-[0_30px_70px_rgba(245,158,11,0.14)] animate-fadeInUp" style={{ animationDelay: `${index * 100}ms` }}>
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,0.14),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.08),transparent_30%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

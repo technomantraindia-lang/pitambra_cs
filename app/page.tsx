@@ -124,7 +124,7 @@ export default function Home() {
                   icon: Droplet,
                   title: 'Plumbing Solutions',
                   description: 'Water supply, drainage, and sanitary system design and execution',
-                  image: '/plumbing-system.jpg'
+                  image: '/plumbing-system.jpg?v=2'
                 },
                 {
                   icon: Factory,
