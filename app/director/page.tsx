@@ -196,8 +196,8 @@ export default function Director() {
                     <div className="relative space-y-3">
                       {section.skills.map((skill, idx) => (
                         <div key={idx} className="flex items-center gap-3 rounded-xl border border-transparent bg-white/45 px-3 py-2.5 transition-all duration-300 hover:border-amber-200/80 hover:bg-white">
-                          <CheckCircle2 size={17} className="shrink-0 text-primary" />
-                          <span className="text-sm font-semibold leading-6 text-slate-600">{skill}</span>
+                          <CheckCircle2 size={18} className="shrink-0 text-primary" />
+                          <span className="text-base font-semibold leading-7 text-slate-600">{skill}</span>
                         </div>
                       ))}
                     </div>

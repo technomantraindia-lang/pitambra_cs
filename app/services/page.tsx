@@ -242,12 +242,12 @@ export default function Services() {
                       <Icon size={28} className="text-secondary" />
                     </div>
                     <h3 className="text-2xl font-bold text-foreground mb-3">{service.title}</h3>
-                    <p className="text-muted-foreground leading-7 mb-6">{service.description}</p>
+                    <p className="mb-6 text-base leading-8 text-muted-foreground">{service.description}</p>
                     <ul className="space-y-3">
                       {service.items.map((item, idx) => (
                         <li key={idx} className="flex gap-3 items-start rounded-xl px-3 py-2 hover:bg-white/80 transition-colors duration-300">
-                          <CheckCircle2 size={18} className="text-secondary mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-slate-600 leading-6">{item}</span>
+                          <CheckCircle2 size={19} className="text-secondary mt-1 flex-shrink-0" />
+                          <span className="text-base leading-7 text-slate-600">{item}</span>
                         </li>
                       ))}
                     </ul>

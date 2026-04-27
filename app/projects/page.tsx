@@ -140,7 +140,7 @@ export default function Projects() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredProjects.map((project) => (
-                <div key={project.id} className="group overflow-hidden rounded-[28px] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,252,0.96))] shadow-[0_24px_60px_rgba(15,23,42,0.08)] transition-all duration-500 hover:-translate-y-2 hover:border-amber-300/70 hover:shadow-[0_30px_70px_rgba(245,158,11,0.14)]">
+                <div key={project.id} className="group flex h-full flex-col overflow-hidden rounded-[28px] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,252,0.96))] shadow-[0_24px_60px_rgba(15,23,42,0.08)] transition-all duration-500 hover:-translate-y-2 hover:border-amber-300/70 hover:shadow-[0_30px_70px_rgba(245,158,11,0.14)]">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
                       src={project.image}
@@ -158,7 +158,7 @@ export default function Projects() {
                     </div>
                   </div>
 
-                  <div className="p-6">
+                  <div className="flex flex-1 flex-col p-6">
                     <div className="mb-4 text-sm">
                       <div className="flex items-center gap-2 text-slate-500">
                         <MapPin size={15} className="shrink-0 text-secondary" />
@@ -166,15 +166,15 @@ export default function Projects() {
                       </div>
                     </div>
 
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3 leading-tight">{project.title}</h3>
-                    <p className="text-slate-600 text-sm mb-5 leading-7">{project.description}</p>
+                    <h3 className="mb-3 min-h-[4rem] text-2xl font-bold leading-tight text-slate-900">{project.title}</h3>
+                    <p className="mb-5 min-h-[7rem] text-sm leading-7 text-slate-600">{project.description}</p>
 
                     <div className="mb-5 flex items-center gap-3">
                       <div className="h-px flex-1 bg-gradient-to-r from-amber-300/80 to-transparent"></div>
                       <span className="text-[11px] font-bold uppercase tracking-[0.24em] text-slate-500">Highlights</span>
                     </div>
 
-                    <div className="flex flex-wrap gap-2 mb-5">
+                    <div className="mb-5 flex min-h-[5.5rem] flex-wrap content-start gap-2">
                       {project.highlights.map((highlight, idx) => (
                         <span key={idx} className="text-xs rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 font-semibold text-amber-800">
                           {highlight}
@@ -182,7 +182,7 @@ export default function Projects() {
                       ))}
                     </div>
 
-                    <div className="border-t border-slate-200 pt-4 flex items-center justify-between">
+                    <div className="mt-auto flex items-center justify-between border-t border-slate-200 pt-4">
                       <span className="text-sm font-semibold text-slate-500">Project Showcase</span>
                       <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-[0_14px_30px_rgba(245,158,11,0.25)] group-hover:translate-x-1 transition-transform duration-300">
                         <ArrowRight size={18} />

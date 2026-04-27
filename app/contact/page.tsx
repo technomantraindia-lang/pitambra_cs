@@ -156,8 +156,8 @@ export default function Contact() {
                       <CircleUserRound size={22} className="text-secondary" />
                     </div>
                     <div>
-                      <p className="font-bold text-foreground">Contact Person</p>
-                      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Directors</p>
+                      <p className="text-lg font-bold text-foreground">Contact Person</p>
+                      <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Directors</p>
                     </div>
                   </div>
 
@@ -165,16 +165,16 @@ export default function Contact() {
                     {contactPeople.map((person) => (
                       <div key={person.email} className="p-4">
                         <div className="mb-3 flex items-baseline justify-between gap-3">
-                          <p className="text-sm font-bold text-foreground">{person.name}</p>
-                          <p className="shrink-0 text-xs font-semibold text-secondary">{person.role}</p>
+                          <p className="text-base font-bold text-foreground">{person.name}</p>
+                          <p className="shrink-0 text-sm font-semibold text-secondary">{person.role}</p>
                         </div>
-                        <div className="space-y-2 text-xs">
+                        <div className="space-y-2 text-sm">
                           <a href={person.phoneHref} className="flex min-w-0 items-center gap-2 text-muted-foreground transition-colors hover:text-foreground">
-                            <Phone size={14} className="shrink-0 text-secondary" />
+                            <Phone size={15} className="shrink-0 text-secondary" />
                             {person.phone}
                           </a>
                           <a href={person.emailHref} className="flex min-w-0 items-center gap-2 text-muted-foreground transition-colors hover:text-foreground">
-                            <Mail size={14} className="shrink-0 text-secondary" />
+                            <Mail size={15} className="shrink-0 text-secondary" />
                             <span className="break-all">{person.email}</span>
                           </a>
                         </div>
@@ -215,8 +215,8 @@ export default function Contact() {
                         <Icon size={22} className="text-secondary" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="font-bold text-foreground">{item.title}</p>
-                        <p className="text-sm leading-6 text-muted-foreground transition-colors duration-300 group-hover:text-foreground">{item.value}</p>
+                        <p className="text-lg font-bold text-foreground">{item.title}</p>
+                        <p className="text-base leading-7 text-muted-foreground transition-colors duration-300 group-hover:text-foreground">{item.value}</p>
                       </div>
                     </a>
                   )

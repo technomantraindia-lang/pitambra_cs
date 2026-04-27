@@ -142,7 +142,17 @@ export function Footer() {
 
         <div className="mt-12 border-t border-white/12 pt-6">
           <div className="flex flex-col gap-4 text-sm text-slate-300/85 md:flex-row md:items-center md:justify-between">
-            <p>&copy; {currentYear} Pitambra Fabtech Pvt Ltd. All rights reserved.</p>
+            <p>
+              &copy; {currentYear} All Rights Reserved. Design By{' '}
+              <a
+                href="https://technomantra.in/"
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold text-amber-300 transition-colors hover:text-amber-200"
+              >
+                Technomantra India.
+              </a>
+            </p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <Link href="#" className="hover:text-white transition-colors">
                 Privacy Policy
