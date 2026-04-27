@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
@@ -11,16 +11,34 @@ interface CarouselProps {
 export function ImageCarousel({ images }: CarouselProps) {
   const [current, setCurrent] = useState(0)
   const [autoPlay, setAutoPlay] = useState(true)
+  const [isVisible, setIsVisible] = useState(true)
+  const carouselRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!autoPlay) return
+    const carousel = carouselRef.current
+
+    if (!carousel || !('IntersectionObserver' in window)) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(Boolean(entry?.isIntersecting))
+      },
+      { threshold: 0.1 }
+    )
+
+    observer.observe(carousel)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!autoPlay || !isVisible) return
 
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length)
     }, 5000)
 
     return () => clearInterval(interval)
-  }, [autoPlay, images.length])
+  }, [autoPlay, images.length, isVisible])
 
   const prev = () => {
     setCurrent((prev) => (prev - 1 + images.length) % images.length)
@@ -33,7 +51,7 @@ export function ImageCarousel({ images }: CarouselProps) {
   }
 
   return (
-    <div className="relative w-full h-full group">
+    <div ref={carouselRef} className="relative w-full h-full group">
       {/* Images */}
       <div className="relative w-full h-full overflow-hidden rounded-2xl">
         {images.map((image, index) => (
@@ -51,6 +69,7 @@ export function ImageCarousel({ images }: CarouselProps) {
               priority={index === 0}
               loading={index === 0 ? 'eager' : 'lazy'}
               sizes="100vw"
+              quality={index === 0 ? 80 : 70}
             />
           </div>
         ))}

@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import Image from 'next/image'
 import { Mail, Phone, MapPin, ArrowUpRight, Wrench, Zap, Droplet, Factory, CheckCircle } from 'lucide-react'
@@ -14,6 +12,7 @@ export function Footer() {
           src="/industrial-facility.jpg"
           alt="Industrial facility"
           fill
+          sizes="100vw"
           className="object-cover"
         />
       </div>

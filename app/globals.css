@@ -274,10 +274,46 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+    }
+
+    .animate-float,
+    .animate-fadeInUp,
+    .animate-slideInLeft,
+    .animate-slideInRight,
+    .animate-slideInDown,
+    .animate-scaleIn,
+    .animate-glow {
+      animation: none !important;
+    }
+
     [data-scroll] {
       opacity: 1;
       transform: none;
       transition: none;
+    }
+
+    .cursor-glow {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .animate-float {
+      animation: none;
+    }
+
+    .blur-3xl {
+      filter: blur(32px);
+    }
+  }
+
+  @media (pointer: coarse) {
+    .cursor-glow {
+      display: none;
     }
   }
 

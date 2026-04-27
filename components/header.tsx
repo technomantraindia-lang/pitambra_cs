@@ -12,10 +12,23 @@ export function Header() {
   const pathname = usePathname()
 
   useEffect(() => {
+    let ticking = false
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
+      if (ticking) return
+
+      ticking = true
+      requestAnimationFrame(() => {
+        setScrolled((wasScrolled) => {
+          const nextScrolled = window.scrollY > 50
+          return wasScrolled === nextScrolled ? wasScrolled : nextScrolled
+        })
+        ticking = false
+      })
     }
-    window.addEventListener('scroll', handleScroll)
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -44,6 +57,7 @@ export function Header() {
               fill
               className="object-contain object-center scale-x-[1.45] scale-y-100 sm:scale-x-[1.55]"
               priority
+              sizes="(max-width: 640px) 380px, 460px"
             />
           </div>
         </Link>

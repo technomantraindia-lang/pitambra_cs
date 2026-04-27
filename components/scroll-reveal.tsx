@@ -1,35 +1,53 @@
 'use client'
 
 import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 
 export function ScrollReveal() {
-  useEffect(() => {
-    const elements = document.querySelectorAll<HTMLElement>('[data-scroll]')
+  const pathname = usePathname()
 
-    if (!('IntersectionObserver' in window)) {
-      elements.forEach((element) => element.classList.add('is-visible'))
-      return
+  useEffect(() => {
+    const revealElements = () => {
+      const elements = document.querySelectorAll<HTMLElement>('[data-scroll]')
+
+      if (!('IntersectionObserver' in window)) {
+        elements.forEach((element) => element.classList.add('is-visible'))
+        return undefined
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible')
+              observer.unobserve(entry.target)
+            }
+          })
+        },
+        {
+          threshold: 0.16,
+          rootMargin: '0px 0px -70px 0px',
+        }
+      )
+
+      elements.forEach((element) => {
+        element.classList.remove('is-visible')
+        observer.observe(element)
+      })
+
+      return () => observer.disconnect()
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      {
-        threshold: 0.16,
-        rootMargin: '0px 0px -70px 0px',
-      }
-    )
+    let cleanup: (() => void) | undefined
+    const frame = requestAnimationFrame(() => {
+      cleanup = revealElements()
+    })
 
-    elements.forEach((element) => observer.observe(element))
-
-    return () => observer.disconnect()
-  }, [])
+    return () => {
+      cancelAnimationFrame(frame)
+      cleanup?.()
+    }
+  }, [pathname])
 
   return null
 }
