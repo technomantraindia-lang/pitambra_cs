@@ -320,23 +320,23 @@ export default function Services() {
         </section>
 
         {/* CTA Section */}
-        <section className="relative py-16 md:py-20 bg-gradient-to-br from-slate-900 via-primary to-slate-800 text-primary-foreground overflow-hidden border-t border-white/10">
+        <section className="relative py-20 md:py-28 bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 text-foreground overflow-hidden border-t border-amber-100">
           <div className="absolute inset-0 opacity-100">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.18),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(96,165,250,0.18),transparent_32%)]"></div>
-            <div className="absolute top-8 left-10 w-72 h-72 bg-amber-300/20 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 right-0 w-80 h-80 bg-sky-300/20 rounded-full blur-3xl"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.18),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.12),transparent_32%)]"></div>
+            <div className="absolute top-8 left-10 w-72 h-72 bg-amber-300/25 rounded-full blur-3xl animate-float"></div>
+            <div className="absolute bottom-0 right-0 w-80 h-80 bg-orange-200/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
           </div>
           <div className="relative max-w-4xl mx-auto px-6 text-center">
-            <div className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-amber-200 mb-5 backdrop-blur-sm">
+            <div className="inline-flex items-center rounded-full border border-amber-200 bg-white/70 px-4 py-2 text-sm font-semibold text-amber-700 mb-5 backdrop-blur-sm animate-fadeInUp">
               Tailored Project Support
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">Ready to Discuss Your Project?</h2>
-            <p className="text-lg text-slate-200 mb-8">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 animate-fadeInUp">Ready to Discuss Your Project?</h2>
+            <p className="text-lg text-slate-700 mb-12 leading-relaxed animate-fadeInUp delay-100">
               Contact our team to discuss your specific requirements and get a detailed proposal.
             </p>
             <a
               href="/contact"
-              className="inline-block bg-gradient-to-r from-amber-500 to-orange-500 text-white px-8 py-3 rounded-lg font-semibold shadow-[0_20px_40px_rgba(245,158,11,0.3)] hover:shadow-[0_24px_48px_rgba(249,115,22,0.35)] hover:scale-105 transition-all duration-300"
+              className="inline-block bg-gradient-to-r from-amber-500 to-orange-500 text-white px-10 py-4 rounded-lg font-bold shadow-[0_20px_40px_rgba(245,158,11,0.3)] hover:shadow-[0_24px_48px_rgba(249,115,22,0.35)] hover:scale-105 transition-all duration-300 animate-fadeInUp delay-200"
             >
               Get Started Today
             </a>
