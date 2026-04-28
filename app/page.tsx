@@ -106,7 +106,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 gap-6 overflow-visible md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:gap-x-24 lg:gap-y-8">
               {[
                 {
                   icon: Wrench,
@@ -140,7 +140,7 @@ export default function Home() {
                     data-scroll="scale"
                     data-scroll-delay={index > 2 ? '3' : String(index)}
                     className="group relative bg-gradient-to-br from-white via-card to-amber-50/60 border-2 border-amber-300/80 shadow-[0_18px_50px_rgba(148,163,184,0.12)] rounded-xl overflow-hidden hover:border-orange-400 transition-all duration-500 hover:-translate-y-2 animate-fadeInUp"
-                    style={{ animationDelay: `${index * 100}ms` }}
+                    style={{ animationDelay: `${index * 100}ms`, zIndex: 40 - index }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-amber-200/45 via-orange-100/30 to-sky-200/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
                     <div className="absolute -inset-8 bg-[radial-gradient(circle_at_center,rgba(251,191,36,0.18),transparent_45%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
@@ -212,24 +212,24 @@ export default function Home() {
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
               {[
                 {
-                  title: 'Industrial HVAC System Installation',
-                  place: 'Pune, Maharashtra',
-                  image: '/hvac-system.jpg',
+                  title: 'Fire Hydrant Line Work',
+                  place: 'JSW MG Motor India Pvt Ltd, Halol, Gujarat',
+                  image: '/Fire-Hydrant-line-JSW-Mg-motor.png',
                 },
                 {
-                  title: 'Electrical Panel & Cable Trenching',
-                  place: 'Chakan, Maharashtra',
-                  image: '/electrical-system.jpg',
+                  title: 'Fire Sprinkler Work',
+                  place: 'Hero MotoCorp Ltd, Halol, Gujarat',
+                  image: '/Fire-Sprinkler.png',
                 },
                 {
-                  title: 'Process Piping Installation',
-                  place: 'Ranjangaon, Maharashtra',
-                  image: '/pipe-fabrication.jpg',
+                  title: 'New Robotic Work Installation',
+                  place: 'Hero MotoCorp Ltd, Halol, Gujarat',
+                  image: '/Robotic-Work.png',
                 },
                 {
-                  title: 'Mechanical Equipment Erection',
-                  place: 'Pune, Maharashtra',
-                  image: '/mep-installation.jpg',
+                  title: 'Compound Wall Work',
+                  place: 'Varroc Engineering Pvt Ltd, Halol, Gujarat',
+                  image: '/Compound-wall.png',
                 },
               ].map((project, index) => (
                 <Link
@@ -310,7 +310,7 @@ export default function Home() {
                     key={index}
                     data-scroll="scale"
                     data-scroll-delay={index > 2 ? '3' : String(index)}
-                    className="group relative animate-fadeInUp cursor-pointer"
+                    className="group relative animate-fadeInUp cursor-pointer overflow-visible"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="relative bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(241,248,255,0.96))] border-2 border-cyan-500 shadow-[0_0_0_1px_rgba(6,182,212,0.25),0_22px_55px_rgba(15,23,42,0.08)] rounded-[28px] overflow-hidden transition-all duration-500 hover:border-sky-600 hover:shadow-[0_0_0_1px_rgba(2,132,199,0.35),0_26px_65px_rgba(14,165,233,0.16)] hover:-translate-y-2 h-full flex flex-col">
@@ -335,8 +335,8 @@ export default function Home() {
                       </div>
                     </div>
                     {index < 3 && (
-                      <div className="hidden md:flex absolute -right-3 top-1/2 transform -translate-y-1/2">
-                        <ArrowRight size={22} className="text-cyan-300/80" />
+                      <div className="absolute right-[-4.25rem] top-1/2 z-[80] hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-[0_14px_30px_rgba(249,115,22,0.32)] ring-4 ring-white/80 lg:flex">
+                        <ArrowRight size={18} strokeWidth={2.75} />
                       </div>
                     )}
                   </div>

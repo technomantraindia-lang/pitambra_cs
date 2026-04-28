@@ -16,8 +16,8 @@ export default function Projects() {
       title: 'Fire Hydrant Line Work',
       location: 'JSW MG Motor India Pvt Ltd, Halol, Gujarat',
       category: 'Fire Safety',
-      image: '/pipe-fabrication.jpg',
-      description: 'Execution of fire hydrant line work for an automotive manufacturing facility, supporting plant fire safety infrastructure with dependable piping installation.',
+      image: '/Fire-Hydrant-line-JSW-Mg-motor.png',
+      description: 'Fire hydrant line work executed for JSW MG Motor India Pvt Ltd at Halol, supporting plant fire safety infrastructure with dependable piping installation.',
       highlights: ['Fire Hydrant Line', 'Plant Safety', 'Piping Installation', 'Industrial Site Work']
     },
     {
@@ -25,13 +25,13 @@ export default function Projects() {
       title: 'Fire Sprinkler Work',
       location: 'Hero MotoCorp Ltd, Halol, Gujarat',
       category: 'Fire Safety',
-      image: '/industrial-facility.jpg',
+      image: '/Fire-Sprinkler.png',
       description: 'Fire sprinkler system work executed for Hero MotoCorp at Halol, focused on reliable coverage, site coordination, and safety-led installation practices.',
       highlights: ['Sprinkler System', 'Fire Protection', 'Automotive Plant', 'Safety Compliance']
     },
     {
       id: 3,
-      title: 'SS Drinking Water Line Project',
+      title: 'SS Drinking Water Line Work',
       location: 'Hero MotoCorp Ltd, Tirupati, Andhra Pradesh',
       category: 'Piping',
       image: '/plumbing-system.jpg?v=2',
@@ -43,16 +43,16 @@ export default function Projects() {
       title: 'Fire Hydrant Line Work',
       location: 'Satyam Auto, Halol, Gujarat',
       category: 'Fire Safety',
-      image: '/mep-installation.jpg',
+      image: '/Fire-Hydrant-line.png',
       description: 'Fire hydrant line work completed for Satyam Auto at Halol, with attention to industrial safety requirements and coordinated site execution.',
       highlights: ['Hydrant Piping', 'Industrial Safety', 'Site Coordination', 'Execution Support']
     },
     {
       id: 5,
-      title: 'New Robotic Line Installation',
+      title: 'New Robotic Work ',
       location: 'Hero MotoCorp Ltd, Halol, Gujarat',
       category: 'Industrial Installation',
-      image: '/electrical-system.jpg',
+      image: '/Robotic-Work.png',
       description: 'Aluminium phase robotic line installation support including electrical and piping work for production-line readiness at Hero MotoCorp Halol.',
       highlights: ['Robotic Line', 'Electrical Work', 'Piping Work', 'Production Support']
     },
@@ -61,7 +61,7 @@ export default function Projects() {
       title: 'Compound Wall Work',
       location: 'Varroc Engineering Pvt Ltd, Halol, Gujarat',
       category: 'Civil Works',
-      image: '/project-completion.jpg',
+      image: '/Compound-wall.png',
       description: 'Compound wall work executed for Varroc Engineering at Halol, supporting plant boundary infrastructure with practical civil execution.',
       highlights: ['Compound Wall', 'Civil Work', 'Boundary Infrastructure', 'Industrial Facility']
     },
@@ -70,7 +70,7 @@ export default function Projects() {
       title: 'Wire Fencing Across Plant',
       location: 'Merino Industries Ltd, Halol, Gujarat',
       category: 'Civil Works',
-      image: '/fabrication.jpg',
+      image: '/Wire-fencing-work%20.png',
       description: 'Wire fencing work carried out across the plant area for Merino Industries, improving site boundary control and plant-level infrastructure readiness.',
       highlights: ['Wire Fencing', 'Plant Boundary', 'Site Infrastructure', 'Civil Support']
     },
@@ -93,10 +93,10 @@ export default function Projects() {
           <div className="absolute inset-0 z-0">
             <ImageCarousel 
               images={[
-                { src: '/project-completion.jpg', alt: 'Project Completion' },
-                { src: '/building-interior.jpg', alt: 'Building Interior' },
-                { src: '/pipe-fabrication.jpg', alt: 'Pipe Fabrication' },
-                { src: '/mep-installation.jpg', alt: 'MEP Installation' },
+                { src: '/Fire-Hydrant-line-JSW-Mg-motor.png', alt: 'Fire Hydrant Line Work at JSW MG Motor' },
+                { src: '/Fire-Sprinkler.png', alt: 'Fire Sprinkler Work at Hero MotoCorp' },
+                { src: '/Robotic-Work.png', alt: 'Robotic Line Installation at Hero MotoCorp' },
+                { src: '/Compound-wall.png', alt: 'Compound Wall Work at Varroc Engineering' },
               ]}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/75 to-primary/70"></div>
@@ -166,15 +166,15 @@ export default function Projects() {
                       </div>
                     </div>
 
-                    <h3 className="mb-3 min-h-[4rem] text-2xl font-bold leading-tight text-slate-900">{project.title}</h3>
-                    <p className="mb-5 min-h-[7rem] text-sm leading-7 text-slate-600">{project.description}</p>
+                    <h3 className="mb-3 text-2xl font-bold leading-tight text-slate-900">{project.title}</h3>
+                    <p className="mb-5 text-sm leading-7 text-slate-600">{project.description}</p>
 
                     <div className="mb-5 flex items-center gap-3">
                       <div className="h-px flex-1 bg-gradient-to-r from-amber-300/80 to-transparent"></div>
                       <span className="text-[11px] font-bold uppercase tracking-[0.24em] text-slate-500">Highlights</span>
                     </div>
 
-                    <div className="mb-5 flex min-h-[5.5rem] flex-wrap content-start gap-2">
+                    <div className="mb-5 flex flex-wrap content-start gap-2">
                       {project.highlights.map((highlight, idx) => (
                         <span key={idx} className="text-xs rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 font-semibold text-amber-800">
                           {highlight}
