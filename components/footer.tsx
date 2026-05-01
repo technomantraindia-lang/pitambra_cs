@@ -49,11 +49,11 @@ export function Footer() {
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-[1.35fr_0.75fr_1fr_1.2fr]">
           <div className="rounded-[24px] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-sm">
-            <h4 className="text-lg font-bold text-white mb-4">About Pitambra Fabtech Pvt Ltd</h4>
-            <p className="text-sm leading-7 text-slate-200/80 mb-6 max-w-md">
+            <h4 className="text-xl font-bold text-white mb-4">About Pitambra Fabtech Pvt Ltd</h4>
+            <p className="text-base leading-7 text-slate-200/80 mb-6 max-w-md">
               We support industrial and commercial projects with practical MEP engineering, fabrication expertise, and quality-focused execution from planning to delivery.
             </p>
-            <div className="mb-6 space-y-2 text-sm text-slate-200/85">
+            <div className="mb-6 space-y-2 text-base text-slate-200/85">
               {['Safety-focused execution', 'Skilled technical manpower', 'On-time project support'].map((item) => (
                 <div key={item} className="flex items-center gap-2">
                   <CheckCircle size={15} className="text-amber-300" />
@@ -61,21 +61,21 @@ export function Footer() {
                 </div>
               ))}
             </div>
-            <div className="grid grid-cols-2 gap-3 text-sm">
+            <div className="grid grid-cols-2 gap-3 text-base">
               <div className="rounded-2xl border border-white/10 bg-white/8 px-4 py-3">
-                <p className="text-xl font-bold text-white">12+</p>
+                <p className="text-2xl font-bold text-white">12+</p>
                 <p className="text-slate-300/80">Years Experience</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/8 px-4 py-3">
-                <p className="text-xl font-bold text-white">100+</p>
+                <p className="text-2xl font-bold text-white">100+</p>
                 <p className="text-slate-300/80">Projects Delivered</p>
               </div>
             </div>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold text-white mb-4">Quick Links</h4>
-            <ul className="space-y-3 text-sm">
+            <h4 className="text-xl font-bold text-white mb-4">Quick Links</h4>
+            <ul className="space-y-3 text-base">
               {[
                 { href: '/services', label: 'Services' },
                 { href: '/about', label: 'About Us' },
@@ -94,8 +94,8 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold text-white mb-4">Core Services</h4>
-            <div className="space-y-3 text-sm">
+            <h4 className="text-xl font-bold text-white mb-4">Core Services</h4>
+            <div className="space-y-3 text-base">
               <Link href="/services#mechanical-engineering" className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/7 px-4 py-3 transition-colors hover:border-amber-300/30 hover:bg-white/10">
                 <Wrench size={16} className="text-amber-300" />
                 <span className="text-slate-200/85">Mechanical Engineering</span>
@@ -116,8 +116,8 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold text-white mb-4">Get in Touch</h4>
-            <div className="space-y-3 text-sm">
+            <h4 className="text-xl font-bold text-white mb-4">Get in Touch</h4>
+            <div className="space-y-3 text-base">
               <div className="flex gap-3 rounded-2xl border border-white/10 bg-white/6 px-4 py-3">
                 <Phone size={16} className="flex-shrink-0 mt-0.5 text-amber-300" />
                 <a href="tel:+918758815986" className="text-slate-200/85 hover:text-white transition-colors">
@@ -141,16 +141,19 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/12 pt-6">
-          <div className="flex flex-col gap-4 text-sm text-slate-300/85 md:flex-row md:items-center md:justify-between">
-            <p>&copy; {currentYear} All Rights Reserved. Design By Technomantra India.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
-              <Link href="#" className="hover:text-white transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="hover:text-white transition-colors">
-                Terms of Service
-              </Link>
-            </div>
+          <div className="text-center text-sm text-slate-300/85">
+            <p>
+              &copy; {currentYear} All Rights Reserved. Design By{' '}
+              <a
+                href="https://technomantra.in/"
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold text-amber-300 transition-colors hover:text-amber-200"
+              >
+                Technomantra India
+              </a>
+              .
+            </p>
           </div>
         </div>
       </div>

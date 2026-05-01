@@ -10,7 +10,7 @@ import { useState } from 'react'
 export default function Contact() {
   const factoryAddress = 'Plot No. SME-1/110, GIDC Estate Halol-2 (Maswad), Taluka Halol, Panchmahals, Gujarat 389350'
   const officeAddress = 'FF-11, Nilkanth Complex, Opp. GIDC Colony, Safari Road, Halol GIDC, Halol Panchmahals, Gujarat, 389350'
-  const factoryMapsUrl = 'https://maps.app.goo.gl/d5zaBRRzDqczKrbAA'
+  const factoryMapsUrl = 'https://maps.app.goo.gl/BZzRZbbUHJpZmk2D9?g_st=iw'
 
   const contactPeople = [
     {
@@ -156,8 +156,8 @@ export default function Contact() {
                       <CircleUserRound size={22} className="text-secondary" />
                     </div>
                     <div>
-                      <p className="text-lg font-bold text-foreground">Contact Person</p>
-                      <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Directors</p>
+                      <p className="text-xl font-bold text-foreground">Contact Person</p>
+                      <p className="text-base font-semibold uppercase tracking-wide text-muted-foreground">Directors</p>
                     </div>
                   </div>
 
@@ -165,10 +165,10 @@ export default function Contact() {
                     {contactPeople.map((person) => (
                       <div key={person.email} className="p-4">
                         <div className="mb-3 flex items-baseline justify-between gap-3">
-                          <p className="text-base font-bold text-foreground">{person.name}</p>
-                          <p className="shrink-0 text-sm font-semibold text-secondary">{person.role}</p>
+                          <p className="text-lg font-bold text-foreground">{person.name}</p>
+                          <p className="shrink-0 text-base font-semibold text-secondary">{person.role}</p>
                         </div>
-                        <div className="space-y-2 text-sm">
+                        <div className="space-y-2 text-base">
                           <a href={person.phoneHref} className="flex min-w-0 items-center gap-2 text-muted-foreground transition-colors hover:text-foreground">
                             <Phone size={15} className="shrink-0 text-secondary" />
                             {person.phone}
@@ -208,6 +208,8 @@ export default function Contact() {
                     <a
                       key={index}
                       href={item.href}
+                      target={item.href.startsWith('http') ? '_blank' : undefined}
+                      rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
                       className="group flex gap-3 rounded-xl border border-border bg-gradient-to-br from-card to-card/50 p-5 shadow-sm transition-all duration-300 hover:border-secondary/60 hover:shadow-lg animate-fadeInUp"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
@@ -394,9 +396,9 @@ export default function Contact() {
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-secondary/20 to-primary/15 flex items-center justify-center mb-6">
                     <MapPin size={28} className="text-secondary" />
                   </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-4">Office Address</h3>
+                  <h3 className="text-2xl font-bold text-foreground mb-4">Factory Address</h3>
                   <p className="text-muted-foreground leading-8 mb-8">
-                    {officeAddress}
+                    {factoryAddress}
                   </p>
                   <a
                     href={factoryMapsUrl}

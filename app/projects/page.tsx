@@ -237,15 +237,15 @@ export default function Projects() {
                         <Icon size={26} className="text-secondary" />
                       </div>
                       <div>
-                        <p className="text-xs font-bold uppercase tracking-[0.22em] text-secondary">Service</p>
-                        <h3 className="text-xl font-bold text-foreground">{service.title}</h3>
+                        <p className="text-sm font-bold uppercase tracking-[0.22em] text-secondary">Service</p>
+                        <h3 className="text-2xl font-bold text-foreground">{service.title}</h3>
                       </div>
                     </div>
                     <ul className="relative space-y-3">
                       {service.items.map((item, idx) => (
                         <li key={idx} className="flex items-center gap-3 rounded-xl border border-transparent bg-white/50 px-3 py-2.5 transition-all duration-300 hover:border-sky-200/80 hover:bg-white">
                           <CheckCircle2 size={17} className="shrink-0 text-primary" />
-                          <span className="text-sm font-medium leading-6 text-slate-600">{item}</span>
+                          <span className="text-base font-medium leading-7 text-slate-600">{item}</span>
                         </li>
                       ))}
                     </ul>

@@ -514,8 +514,8 @@ export default function Home() {
                         <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-100 to-orange-50 group-hover:scale-110 transition-transform duration-300">
                           <Icon size={22} className="text-secondary" />
                         </div>
-                        <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
-                        <p className="text-sm leading-7 text-slate-600">{item.desc}</p>
+                        <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
+                        <p className="text-base leading-8 text-slate-600">{item.desc}</p>
                       </div>
                     )
                   })}
